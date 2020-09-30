@@ -22,8 +22,8 @@ func input():
 	if Input.is_action_pressed("ui_down"):
 		apply_central_impulse(Vector2(0, ACCELERATION).rotated(rotation))
 
-func sound():
-	pass
+func sound(): 
+	$Engine.pitch_scale = linear_velocity.length()/1000 + 0.1
 
 func camera():
 	var scalefactor = 1.5 + linear_velocity.length()/1000
@@ -33,3 +33,6 @@ const Skidmark = preload("res://skidmark.tscn")
 
 func doSkidmark():
 	pass
+
+func _on_player_body_entered(body):
+	$crash.play()
