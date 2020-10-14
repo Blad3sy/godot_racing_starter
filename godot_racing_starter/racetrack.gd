@@ -9,7 +9,7 @@ func _process(delta):
 
 
 func _on_checkpoint_body_entered(body):
-	if body.name == 'player':
+	if body.name == 'player' or body.name == 'player2':
 		if(time < best_time):
 			best_time = time
 		$HUD/best.text = "BEST: " + str(best_time).pad_zeros(3).left(6)
